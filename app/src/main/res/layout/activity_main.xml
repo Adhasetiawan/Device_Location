@@ -16,19 +16,87 @@
         android:textAllCaps="false"
         android:textSize="20sp" />
 
+    <Button
+        android:id="@+id/btn_toast"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_margin="10dp"
+        android:text="Quick Toast"
+        android:textAllCaps="false"
+        android:textSize="20sp" />
+
+    <RadioGroup
+        android:id="@+id/radio_placer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/radio_Office"
+            android:text="Office"
+            android:textSize="20sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+        <RadioButton
+            android:id="@+id/radio_wfh"
+            android:text="WFH / Outstation"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"/>
+
+    </RadioGroup>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="My Location" />
+
     <TextView
         android:id="@+id/txt_lat"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:text="Latitude"
-        android:layout_margin="20dp"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
 
     <TextView
         android:id="@+id/txt_long"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
         android:text="Longitude"
-        android:layout_margin="20dp"
-        android:textSize="20sp"/>
+        android:textSize="20sp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Must go! Here" />
+
+    <TextView
+        android:id="@+id/txt_latitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Target latitude"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/txt_longitude"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="10dp"
+        android:text="Target longitude"
+        android:textSize="20sp" />
+
+
 </LinearLayout>
