@@ -156,10 +156,10 @@ class MainActivity : AppCompatActivity() {
                 val dateTime = Calendar.getInstance()
 
                 //formating
-                var formatMM = ""
-                var formatdd = ""
-                var formatHH = ""
-                var formatmm = ""
+                var formatMM = "01"
+                var formatdd = "01"
+                var formatHH = "00"
+                var formatmm = "00"
 
                 //getdate & format date
                 val dd = dateTime.get(Calendar.DAY_OF_MONTH)
