@@ -78,7 +78,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="20dp"
         android:layout_marginTop="20dp"
-        android:text="Must go! Here" />
+        android:text="Must go here!" />
 
     <TextView
         android:id="@+id/txt_latitude"
@@ -97,6 +97,22 @@
         android:layout_marginTop="10dp"
         android:text="Target longitude"
         android:textSize="20sp" />
+
+    <TextView
+        android:text="Current time"
+        android:layout_marginTop="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:id="@+id/txt_time"
+        android:text="Current time"
+        android:textSize="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="20dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
 
 </LinearLayout>

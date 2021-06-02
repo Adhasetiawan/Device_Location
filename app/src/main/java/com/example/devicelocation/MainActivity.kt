@@ -2,13 +2,21 @@ package com.example.devicelocation
 
 import android.content.pm.PackageManager
 import android.location.Location
+import android.os.Build
 import android.os.Bundle
 import android.os.Looper
+import android.text.format.DateFormat
+import android.text.format.Time
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import com.google.android.gms.location.*
 import kotlinx.android.synthetic.main.activity_main.*
+import java.text.SimpleDateFormat
+import java.time.LocalDateTime
+import java.time.format.DateTimeFormatter
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -140,6 +148,12 @@ class MainActivity : AppCompatActivity() {
                 } else {
                     Toast.makeText(this, "anda tidak bisa absen", Toast.LENGTH_SHORT).show()
                 }
+
+               val time = Calendar.getInstance()
+               val HH = time.get(Calendar.HOUR_OF_DAY)
+               val mm = time.get(Calendar.MINUTE)
+
+                txt_time.text = HH.toString() + ":" + mm.toString()
 
             } else if (radio_wfh.isChecked) {
                 Toast.makeText(
