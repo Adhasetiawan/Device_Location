@@ -11,12 +11,15 @@ import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
+import androidx.core.graphics.convertTo
 import com.google.android.gms.location.*
 import kotlinx.android.synthetic.main.activity_main.*
 import java.text.SimpleDateFormat
 import java.time.LocalDateTime
 import java.time.format.DateTimeFormatter
 import java.util.*
+import java.util.concurrent.TimeUnit
+import kotlin.time.days
 
 class MainActivity : AppCompatActivity() {
 
@@ -149,11 +152,47 @@ class MainActivity : AppCompatActivity() {
                     Toast.makeText(this, "anda tidak bisa absen", Toast.LENGTH_SHORT).show()
                 }
 
-               val time = Calendar.getInstance()
-               val HH = time.get(Calendar.HOUR_OF_DAY)
-               val mm = time.get(Calendar.MINUTE)
+                //inisialisasi
+                val dateTime = Calendar.getInstance()
 
-                txt_time.text = HH.toString() + ":" + mm.toString()
+                //formating
+                var formatMM = ""
+                var formatdd = ""
+                var formatHH = ""
+                var formatmm = ""
+
+                //getdate & format date
+                val dd = dateTime.get(Calendar.DAY_OF_MONTH)
+                val MM = dateTime.get(Calendar.MONTH).plus(1)
+                val yyyy = dateTime.get(Calendar.YEAR)
+                if(MM < 10 && dd < 10){
+                    formatMM = "0" + MM.toString()
+                    formatdd = "0" + dd.toString()
+                } else if (MM < 10){
+                    formatMM = "0" + MM.toString()
+                } else if (dd < 10){
+                    formatdd = "0" + dd.toString()
+                } else {
+                    formatMM = MM.toString()
+                    formatdd = dd.toString()
+                }
+
+                //gettime and format time
+                val HH = dateTime.get(Calendar.HOUR_OF_DAY)
+                val mm = dateTime.get(Calendar.MINUTE)
+                if(HH < 10 && mm < 10){
+                    formatHH = "0" + HH.toString()
+                    formatmm = "0" + mm.toString()
+                } else if (HH < 10){
+                    formatHH = "0" + HH.toString()
+                } else if (mm < 10){
+                    formatmm = "0" + mm.toString()
+                } else{
+                    formatHH = HH.toString()
+                    formatmm = mm.toString()
+                }
+
+                txt_time.text = yyyy.toString() + "-" + formatMM + "-" + formatdd + " " + formatHH + ":" + formatmm
 
             } else if (radio_wfh.isChecked) {
                 Toast.makeText(
