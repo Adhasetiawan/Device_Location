@@ -129,8 +129,8 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun selectionact() {
-        val target_lat : Double = -0.5063700
-        val target_lng : Double = 117.1605300
+        val target_lat: Double = -0.5063700
+        val target_lng: Double = 117.1605300
 
         txt_latitude.text = target_lat.toString()
         txt_longitude.text = target_lng.toString()
@@ -165,12 +165,12 @@ class MainActivity : AppCompatActivity() {
                 val dd = dateTime.get(Calendar.DAY_OF_MONTH)
                 val MM = dateTime.get(Calendar.MONTH).plus(1)
                 val yyyy = dateTime.get(Calendar.YEAR)
-                if(MM < 10 && dd < 10){
+                if (MM < 10 && dd < 10) {
                     formatMM = "0" + MM.toString()
                     formatdd = "0" + dd.toString()
-                } else if (MM < 10){
+                } else if (MM < 10) {
                     formatMM = "0" + MM.toString()
-                } else if (dd < 10){
+                } else if (dd < 10) {
                     formatdd = "0" + dd.toString()
                 } else {
                     formatMM = MM.toString()
@@ -180,19 +180,20 @@ class MainActivity : AppCompatActivity() {
                 //gettime and format time
                 val HH = dateTime.get(Calendar.HOUR_OF_DAY)
                 val mm = dateTime.get(Calendar.MINUTE)
-                if(HH < 10 && mm < 10){
+                if (HH < 10 && mm < 10) {
                     formatHH = "0" + HH.toString()
                     formatmm = "0" + mm.toString()
-                } else if (HH < 10){
+                } else if (HH < 10) {
                     formatHH = "0" + HH.toString()
-                } else if (mm < 10){
+                } else if (mm < 10) {
                     formatmm = "0" + mm.toString()
-                } else{
+                } else {
                     formatHH = HH.toString()
                     formatmm = mm.toString()
                 }
 
-                txt_time.text = yyyy.toString() + "-" + formatMM + "-" + formatdd + " " + formatHH + ":" + formatmm
+                txt_time.text =
+                    yyyy.toString() + "-" + formatMM + "-" + formatdd + " " + formatHH + ":" + formatmm
 
             } else if (radio_wfh.isChecked) {
                 Toast.makeText(
