@@ -1,6 +1,7 @@
 package com.example.devicelocation
 
 import android.content.pm.PackageManager
+import android.location.Location
 import android.os.Bundle
 import android.os.Looper
 import android.widget.Toast
@@ -15,8 +16,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var locationRequest: LocationRequest
     private lateinit var locationCallback: LocationCallback
 
-    private var lat : Double = 0.0
-    private var lng : Double = 0.0
+    private var lat: Double = 0.0
+    private var lng: Double = 0.0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         selectionact()
     }
 
-    private fun autolocate(){
+    private fun autolocate() {
         //permission
         if (ActivityCompat.shouldShowRequestPermissionRationale(
                 this,
@@ -73,7 +74,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    private fun relocate(){
+    private fun relocate() {
         btn_locate.setOnClickListener {
             autolocate()
         }
@@ -116,9 +117,33 @@ class MainActivity : AppCompatActivity() {
         locationRequest.smallestDisplacement = 10f
     }
 
-    private fun selectionact(){
+    private fun selectionact() {
+        val target_lat : Double = -0.5063700
+        val target_lng : Double = 117.1605300
+
+        txt_latitude.text = target_lat.toString()
+        txt_longitude.text = target_lng.toString()
+
         btn_toast.setOnClickListener {
-            Toast.makeText(this, "lat : " + lat, Toast.LENGTH_SHORT).show()
+            if(radio_Office.isChecked){
+                val start = Location("locationStart")
+                start.latitude = lat
+                start.longitude = lng
+
+                val end = Location("locationEnd")
+                end.latitude = target_lat
+                end.longitude = target_lng
+
+                var distance = start.distanceTo(end)
+                if(distance <= 20.0){
+                    Toast.makeText(this, "anda bisa absen", Toast.LENGTH_SHORT).show()
+                }else{
+                    Toast.makeText(this, "anda tidak bisa absen", Toast.LENGTH_SHORT).show()
+                }
+
+            }else if (radio_wfh.isChecked){
+                Toast.makeText(this, "your location now at lat : " + lat + " lng : " + lng, Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
