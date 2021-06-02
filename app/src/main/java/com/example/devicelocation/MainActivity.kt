@@ -125,7 +125,7 @@ class MainActivity : AppCompatActivity() {
         txt_longitude.text = target_lng.toString()
 
         btn_toast.setOnClickListener {
-            if(radio_Office.isChecked){
+            if (radio_Office.isChecked) {
                 val start = Location("locationStart")
                 start.latitude = lat
                 start.longitude = lng
@@ -135,39 +135,19 @@ class MainActivity : AppCompatActivity() {
                 end.longitude = target_lng
 
                 var distance = start.distanceTo(end)
-                if(distance <= 20.0){
+                if (distance <= 20.0) {
                     Toast.makeText(this, "anda bisa absen", Toast.LENGTH_SHORT).show()
-                }else{
+                } else {
                     Toast.makeText(this, "anda tidak bisa absen", Toast.LENGTH_SHORT).show()
                 }
 
-            }else if (radio_wfh.isChecked){
-                Toast.makeText(this, "your location now at lat : " + lat + " lng : " + lng, Toast.LENGTH_SHORT).show()
+            } else if (radio_wfh.isChecked) {
+                Toast.makeText(
+                    this,
+                    "your location now at lat : " + lat + " lng : " + lng,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
     }
-
-//    private fun distanceCalcualte(){
-//        var lati_1 = lati_1.text
-//        var long_1 = long_1.text
-//
-//        var lati_2 = lati_2.text
-//        var long_2 = long_2.text
-//
-//            val point_1 = Location("locationA")
-//            point_1.latitude = lati_1.toString().toDouble()
-//            point_1.longitude = long_1.toString().toDouble()
-//
-//            val point_2 = Location("locationA")
-//            point_2.latitude = lati_2.toString().toDouble()
-//            point_2.longitude = long_2.toString().toDouble()
-//
-//            var distance = point_1.distanceTo(point_2).toDouble()
-//
-//            if (distance <= 100.0 ){
-//                Toast.makeText(this, "anda bisa absen, jarak anda : " + distance, Toast.LENGTH_SHORT).show()
-//        }else{
-//                Toast.makeText(this, "anda tidak bisa absen " + distance, Toast.LENGTH_SHORT).show()
-//            }
-//        }
 }
