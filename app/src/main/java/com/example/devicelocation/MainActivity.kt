@@ -156,44 +156,35 @@ class MainActivity : AppCompatActivity() {
                 val dateTime = Calendar.getInstance()
 
                 //formating
-                var formatMM = "01"
-                var formatdd = "01"
-                var formatHH = "00"
-                var formatmm = "00"
+                var hour = "0"
+                var minute = "0"
+                var days = "1"
+                var month = "1"
 
-                //getdate & format date
-                val dd = dateTime.get(Calendar.DAY_OF_MONTH)
-                val MM = dateTime.get(Calendar.MONTH).plus(1)
-                val yyyy = dateTime.get(Calendar.YEAR)
-                if (MM < 10 && dd < 10) {
-                    formatMM = "0" + MM.toString()
-                    formatdd = "0" + dd.toString()
-                } else if (MM < 10) {
-                    formatMM = "0" + MM.toString()
-                } else if (dd < 10) {
-                    formatdd = "0" + dd.toString()
-                } else {
-                    formatMM = MM.toString()
-                    formatdd = dd.toString()
+                //time
+                var getHour = dateTime.get(Calendar.HOUR_OF_DAY)
+                var getMinute = dateTime.get(Calendar.MINUTE)
+                if (getHour < 10 && getMinute < 10 || getHour < 10 || getMinute < 10){
+                    hour = getHour.toString().padStart(2, '0')
+                    minute = getMinute.toString().padStart(2, '0')
+                }else{
+                    hour = getHour.toString()
+                    minute = getMinute.toString()
                 }
 
-                //gettime and format time
-                val HH = dateTime.get(Calendar.HOUR_OF_DAY)
-                val mm = dateTime.get(Calendar.MINUTE)
-                if (HH < 10 && mm < 10) {
-                    formatHH = "0" + HH.toString()
-                    formatmm = "0" + mm.toString()
-                } else if (HH < 10) {
-                    formatHH = "0" + HH.toString()
-                } else if (mm < 10) {
-                    formatmm = "0" + mm.toString()
+                //date
+                var getDays = dateTime.get(Calendar.DAY_OF_MONTH)
+                var getMonth = dateTime.get(Calendar.MONTH).plus(1)
+                val getYear = dateTime.get(Calendar.YEAR)
+                if(getDays < 10 && getMonth < 10 || getDays < 10 || getMonth < 10){
+                    days = getDays.toString().padStart(2, '0')
+                    month = getMonth.toString().padStart(2, '0')
                 } else {
-                    formatHH = HH.toString()
-                    formatmm = mm.toString()
+                    days = getDays.toString()
+                    month = getMonth.toString()
                 }
 
-                txt_time.text =
-                    yyyy.toString() + "-" + formatMM + "-" + formatdd + " " + formatHH + ":" + formatmm
+                txt_time.text = getYear.toString() + "-" + month + "-" + days + " " + hour + ":" + minute
 
             } else if (radio_wfh.isChecked) {
                 Toast.makeText(
